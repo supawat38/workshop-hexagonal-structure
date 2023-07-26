@@ -1,0 +1,14 @@
+version: "2.4"
+services:
+    app:
+        container_name: microserviceMOCK
+        build: 
+            context: .
+            dockerfile: ./build/Dockerfile.local
+        volumes: 
+            - ./:/app/
+        working_dir: /app
+        env_file:
+            - .env
+        ports:
+            - "${APP_PORT}:${APP_PORT}"
